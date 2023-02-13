@@ -1,0 +1,12 @@
+body {
+    background-color: black;
+}
+
+/* . referencia uma classe */
+.p1 { 
+    color: white;
+}
+/* # referencia um id */
+#p2 {
+    color: red;
+}
