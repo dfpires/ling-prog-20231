@@ -11,7 +11,7 @@ function calcularExe1(){
     // saída dos dados
     document.getElementById("subtracao").innerHTML = "O resultado é " + subtracao;
 }
-function calcularExe2(){
+function calcularExe7(){
     // recupera o peso do html
     let peso = Number(document.getElementById("peso").value)
     // calcular quando engorda
@@ -21,4 +21,14 @@ function calcularExe2(){
     // devolve o resultado para html
     document.getElementById("engorda").innerHTML = "Quando engorda " + engorda
     document.getElementById("emagrece").innerHTML = "Quando emagrece " + emagrece
+}
+function calcularExe9(){
+    // recupera os dados do usuário
+    let basemaior = Number(document.getElementById("basemaior").value)
+    let basemenor = Number(document.getElementById("basemenor").value)
+    let altura = Number(document.getElementById("altura").value)
+
+    let area = ((basemaior + basemenor) * altura) / 2
+    // devolve para html
+    document.getElementById("area").innerHTML = "A área do trapézio é " + area
 }
