@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let A = Number(prompt('Informe valor de A'))
+        let B = Number(prompt('Informe valor de B'))
+        let C = Number(prompt('Informe valor de C'))
+        let D = Number(prompt('Informe valor de D'))
+        let conta = 1
+        while (conta <= 3){
+            if (A > B ){
+                let AUX; AUX = A; A = B; B = AUX;
+            }
+            if (B > C){
+                let AUX; AUX = B; B = C; C = AUX;
+            }
+            if (C > D){
+                let AUX; AUX = C; C = D; D = AUX;
+            }
+            conta++ // conta = conta + 1
+        }
+        alert(`Ordenação crescente ${A} ${B} ${C} ${D}`)
+    </script>
+</body>
+</html>
