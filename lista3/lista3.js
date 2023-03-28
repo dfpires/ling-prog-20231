@@ -53,4 +53,57 @@ function exe4(){
     alert(saida)
 }
 
+function exe7(){
+    // entrada de dados
+    let idade, altura, peso
+    let item1 = 0, item2 = 0, qtdeItem2 = 0, item3 = 0
+    for (let conta = 1; conta<= 5;conta++){
+        idade = Number(prompt(`Informe a idade ${conta}`))
+        altura = Number(prompt(`Informe a altura ${conta}`))
+        peso = Number(prompt(`Informe o peso ${conta}`))
+        // calcular o item 1
+        if (idade > 50){
+            item1++ // item1 = item1 + 1
+        }        
+        // calcular o item 2
+        if ((idade >= 10) && (idade <= 20)){
+            item2 += altura // item2 = item2 + altura
+            qtdeItem2++ // qtdeItem2 = qtdeItem2 + 1
+        }
+        if (peso < 40){
+            item3++
+        }
+    }
+    // mostra resultado
+    document.getElementById("item1").innerHTML = "Qtde pessoas idade > 50 " + item1
+    if (qtdeItem2 != 0){
+        document.getElementById("item2").innerHTML = "Média alturas com idade entre 10 e 20 " + (item2/qtdeItem2).toFixed(2)
+    }
+    document.getElementById("item3").innerHTML = " % com peso < 40 " + item3/5*100 
 
+}
+
+function exe20(){
+    let opcao
+    do { // faça
+        opcao = Number(prompt("Menu de opções \n 1. Média aritmética \n 2. Média ponderada \n 3. Sair"))
+        switch(opcao){
+            case 1: let nota1 = Number(prompt("Nota 1"))
+                    let nota2 = Number(prompt("Nota 2"))
+                    alert("Média aritmética " + (nota1 + nota2) / 2)
+                    break
+            case 2: let nota1p = Number(prompt("Nota 1"))
+                    let peso1 = Number(prompt("Peso da Nota 1"))
+                    let nota2p = Number(prompt("Nota 2"))
+                    let peso2 = Number(prompt("Peso da Nota 2"))
+                    let nota3p = Number(prompt("Nota 3"))
+                    let peso3 = Number(prompt("Peso da Nota 3"))
+                    alert("Média ponderada " + ((nota1p*peso1) + (nota2p*peso2) + (nota3p * peso3)) / (peso1 + peso2 + peso3))
+                    break
+            case 3: alert("Opção 3 selecionada, programa será encerrado")
+                    break
+            default: alert("Opção inválida")
+        }
+    }
+    while (opcao != 3) // enquanto
+}
