@@ -107,3 +107,39 @@ function exe20(){
     }
     while (opcao != 3) // enquanto
 }
+function exe21(){
+    let opcao; let totalVotos
+    let qtde1 = 0, qtde2 = 0, qtde3 = 0, qtde4 = 0, qtdeNulo = 0, qtdeBranco = 0 
+    do {
+        opcao = Number(prompt("Escolha a opção desejada: \n 1. Voto no candidato 1 \n 2. Voto no candidato 2 \n 3. Voto no candidato 3 \n 4. Voto no candidato 4 \n 5. Voto nulo \n 6. Voto em branco \n 0. Encerra a votação"))
+        switch(opcao){
+            case 1: qtde1++
+                    break // não entra nos cases abaixo
+            case 2: qtde2++
+                    break // não entra nos cases abaixo
+            case 3: qtde3++
+                    break // não entra nos cases abaixo
+            case 4: qtde4++
+                    break // não entra nos cases abaixo
+            case 5: qtdeNulo++
+                    break // não entra nos cases abaixo
+            case 6: qtdeBranco++ 
+                    break // não entra nos cases abaixo
+            case 0: alert("Votação encerrada, verifique o resultado")
+                    break // não entra nos cases abaixo
+            default: alert("Opção inválida")
+        }
+    }
+    while (opcao != 0)
+    // mostrar o resultado na página HTML
+    document.getElementById("qtde1").innerHTML = qtde1
+    document.getElementById("qtde2").innerHTML = qtde2
+    document.getElementById("qtde3").innerHTML = qtde3
+    document.getElementById("qtde4").innerHTML = qtde4
+    document.getElementById("qtdeNulo").innerHTML = qtdeNulo
+    document.getElementById("qtdeBranco").innerHTML = qtdeBranco
+    // calcula total de votos
+    totalVotos = qtde1 + qtde2 + qtde3 + qtde4 + qtdeNulo + qtdeBranco
+    document.getElementById("percNulo").innerHTML = ((qtdeNulo / totalVotos) * 100).toFixed(2)
+    document.getElementById("percBranco").innerHTML = ((qtdeBranco / totalVotos) * 100).toFixed(2)
+}
