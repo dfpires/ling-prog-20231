@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exe 5 - Lista 2</title>
+        <link rel="stylesheet" href="lista2.css"/>
+        <script src="lista2.js"> </script> 
+    </head>
+    <body>
+        <div id="container">
+            <div>
+                Informe Número 1 <input type="number" id="nro1"/>
+            </div>
+            <div>
+                Informe Número 2 <input type="number" id="nro2"/>
+            </div>
+            <div>
+                Selecione a operação 
+                <select id="opcao">
+                    <option value="1"> Média entre os números digitados </option>
+                    <option value="2"> Diferença do maior pelo menor </option>
+                    <option value="3"> Produto entre os números digitados </option>
+                    <option value="4"> Divisão do primeiro pelo segundo </option> 
+                </select>
+            </div>
+            <div>
+                <button onclick="calcularExe5()"> Calcular </button> 
+            </div>
+            <div>
+                <p id="resultado"/>
+            </div>
+        </div>    
+    </body>
+</html>

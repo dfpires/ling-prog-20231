@@ -1,0 +1,20 @@
+body{
+    width: 600px;
+    border: 1px solid #000;
+}
+
+#container {
+    border: 1px solid #000;
+    margin: auto;
+}
+
+#tabela {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#tabela td {
+    border: 1px solid #000;
+}
+
+

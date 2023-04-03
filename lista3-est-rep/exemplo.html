@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let conta = 1
+	    let acumula = 0
+        let final = Number(prompt("Quer contar até quanto?"))
+	    while (conta <= final){
+            console.log(conta)
+            acumula = acumula + conta
+            console.log(`Conta: ${conta} e Acumula ${acumula}`)		
+            conta = conta + 1
+    	}
+        console.log(`Média ${acumula/(conta-1)}`)	
+    </script>
+    <!-- faça um programa JS que peça ao usuário para informar a quantidade de alunos (n). Em seguida, peça ao usuário para informar as n notas, calcule e mostre a média destas notas -->
+</body>
+</html>

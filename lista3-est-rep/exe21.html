@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exe 21 - Lista 3</title>
+        <style>
+            body {
+                width: 400px;
+                margin: auto;
+            }
+            span {
+                color: red;
+            }
+            div {
+                border: 1px solid black;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            #divBotao {
+                display: flex;
+                justify-content: center; /* alinha na horizontal */
+                border-radius: 5px;
+                margin-bottom: 5px;
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="divBotao"> 
+                <button onclick="exe21()"> Votação para presidente </button>
+            </div>
+            <div> 
+                <p> Qtde de votos em 1: <span id="qtde1"></span></p>
+                <p> Qtde de votos em 2: <span id="qtde2"></span></p>
+                <p> Qtde de votos em 3: <span id="qtde3"></span></p>
+                <p> Qtde de votos em 4: <span id="qtde4"></span></p>
+                <p> Qtde de votos nulos: <span id="qtdeNulo"></span></p>
+                <p> Qtde de votos em branco: <span id="qtdeBranco"></span></p>
+                <p> % de votos nulos: <span id="percNulo"></span></p>
+                <p> % de votos em branco: <span id="percBranco"></span></p>
+            </div>
+        </div>
+        <script src="lista3.js"> </script>
+    </body>
+</html>

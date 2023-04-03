@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let conta = 1
+        let acumula = 0
+        let n = Number(prompt('Informe qtde de alunos'))
+        let nota
+        while (conta <= n){
+            nota = Number(prompt(`Informe a nota do aluno ${conta}`))
+            acumula = acumula + nota // soma as notas
+            conta = conta + 1 // incrementa a variável de controle
+        }
+        alert(`A média de notas digitadas é ${acumula / n}`)
+    </script>
+</body>
+</html>
