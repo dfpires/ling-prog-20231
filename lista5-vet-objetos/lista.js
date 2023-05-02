@@ -78,7 +78,47 @@ function cadastraCliente(clientes){
     }
     clientes.push(objCliente)
 }
+function cadastraConta(contas, clientes){
+    let objConta = {
+        numero: contas.length,
+        nroCliente: Number(prompt('Informe número do cliente')),
+        saldo: Number(prompt('Saldo da conta'))
+    }
+    // verifica se o cliente existe
+    let achou = false
+    for(let i=0;i<clientes.length;i++){
+        if (objConta.nroCliente == clientes[i].numero){
+            contas.push(objConta)
+            achou = true // encontrou
+        }
+    }
+    if (!achou){ // não encontrou o cliente
+        let objCliente = {
+            numero: objConta.nroCliente, // código do cliente é incremental
+            nome: prompt('Nome do cliente'),
+            telefone: prompt('Telefone do cliente'),
+            endereco: prompt('Endereço do cliente')
+        }
+        clientes.push(objCliente)
+        contas.push(objConta)
+    }
+}
 
+function listaContas(contas){
+    let tabelaContas = ""
+    for(let i=0;i<contas.length;i++){
+        tabelaContas = tabelaContas + `<tr><td> ${contas[i].numero} </td> <td> ${contas[i].nroCliente} </td> <td> ${contas[i].saldo} </td> </tr>` 
+    }
+    document.getElementById("tabelaContas").innerHTML = tabelaContas
+}
+
+function listaClientes(clientes){
+    let tabelaClientes = ""
+    for(let i=0;i<clientes.length;i++){
+        tabelaClientes = tabelaClientes + `<tr><td> ${clientes[i].numero} </td> <td> ${clientes[i].nome} </td> <td> ${clientes[i].telefone} </td> <td> ${clientes[i].endereco} </td></tr>` 
+    }
+    document.getElementById("tabelaClientes").innerHTML = tabelaClientes
+}
 function exe6(){
     let opcao
     let clientes = []; let contas = [];
@@ -87,44 +127,65 @@ function exe6(){
         switch(opcao){
             case 1: cadastraCliente(clientes)
                     break
-            case 2: let objConta = {
-                        numero: contas.length,
-                        nroCliente: Number(prompt('Informe número do cliente')),
-                        saldo: Number(prompt('Saldo da conta'))
-                    }
-                    // verifica se o cliente existe
-                    let achou = false
-                    for(let i=0;i<clientes.length;i++){
-                        if (objConta.nroCliente == clientes[i].numero){
-                            contas.push(objConta)
-                            achou = true // encontrou
-                        }
-                    }
-                    if (!achou){ // não encontrou o cliente
-                        let objCliente = {
-                            numero: objConta.nroCliente, // código do cliente é incremental
-                            nome: prompt('Nome do cliente'),
-                            telefone: prompt('Telefone do cliente'),
-                            endereco: prompt('Endereço do cliente')
-                        }
-                        clientes.push(objCliente)
-                        contas.push(objConta)
-                    }
+            case 2: cadastraConta(contas, clientes)
                     break
-                case 3: let tabelaContas = ""
-                        for(let i=0;i<contas.length;i++){
-                            tabelaContas = tabelaContas + `<tr><td> ${contas[i].numero} </td> <td> ${contas[i].nroCliente} </td> <td> ${contas[i].saldo} </td> </tr>` 
-                        }
-                        document.getElementById("tabelaContas").innerHTML = tabelaContas
-
-                        break
-                case 4: let tabelaClientes = ""
-                        for(let i=0;i<clientes.length;i++){
-                            tabelaClientes = tabelaClientes + `<tr><td> ${clientes[i].numero} </td> <td> ${clientes[i].nome} </td> <td> ${clientes[i].telefone} </td> <td> ${clientes[i].endereco} </td></tr>` 
-                        }
-                        document.getElementById("tabelaClientes").innerHTML = tabelaClientes
-                        break
+            case 3: listaContas(contas)
+                    break
+            case 4: listaClientes(clientes)
+                    break
             }
     }
     while (opcao != 5)
+}
+
+function coleta(habits){
+    for(let i=0;i<3;i++){
+        let obj = {
+            idade: Number(prompt('Informe idade do habitante')),
+            sexo: prompt('Informe M ou F para o sexo do habitante').toUpperCase(),
+            renda: Number(prompt('Informe a renda familiar')),
+            filhos: Number(prompt('Informe o número de filhos'))
+        }
+        habits.push(obj)
+    }
+}
+function mediaSalario(habits){
+    let soma = 0
+    for(let i=0;i<3;i++){
+        soma += habits[i].renda
+    }
+    return soma/3
+}
+
+function menorMaiorIdade(habits){
+    let menorIdade = habits[0].idade
+    let maiorIdade = habits[0].idade
+    for(let i=0;i<3;i++){
+        if (habits[i].idade < menorIdade){
+            menorIdade = habits[i].idade
+        }
+        if (habits[i].idade > maiorIdade){
+            maiorIdade = habits[i].idade
+        }
+    }
+    console.log(`A menor idade é ${menorIdade} e a maior idade é ${maiorIdade}`)
+}
+
+function mulheres(habits){
+    let qtde = 0
+    for(let i=0;i<3;i++){
+        if ((habits[i].sexo == 'F') && (habits[i].renda < 600) && (habits[i].filhos > 2)){
+            qtde++
+        }
+    }
+    //console.log(`A quantidade é ${qtde}`)
+    return qtde 
+}
+function exe4(){
+    let habits = []
+    coleta(habits)
+    let media = mediaSalario(habits)
+    console.log(`A média da renda é ${media}`)
+    menorMaiorIdade(habits)
+    console.log(`A qtde de mulheres é ${mulheres(habits)}`)
 }
