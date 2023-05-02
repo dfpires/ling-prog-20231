@@ -3,3 +3,5 @@
 	=> estrutura de seleção<br/>
 	=> estrutura de repetição<br/>
 	=> vetores<br/>
+	<br/>
+	https://www.youtube.com/watch?v=fPSqyGg4xFA
