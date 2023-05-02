@@ -4,4 +4,4 @@
 	=> estrutura de repetição<br/>
 	=> vetores<br/>
 	<br/>
-	https://www.youtube.com/watch?v=fPSqyGg4xFA
+	Vídeo sobre matrizes: https://www.youtube.com/watch?v=fPSqyGg4xFA
