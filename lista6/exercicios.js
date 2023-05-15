@@ -47,3 +47,112 @@ function exe2(){
     alert(vet)
     alert(soma/contaPares)
 }
+function exe3(){
+    let mat = [] // cria a matriz
+    // LEITURA DA MATRIZ
+    for(let i=0;i<6;i++){
+        mat[i] = [] // cria um vetor dentro da matriz
+        for(let j=0;j<3;j++){
+            mat[i][j] = Number(prompt(`Informe o elemento da posição ${i+1} ${j+1}`))
+        }
+    }
+    // calcula o maior e menor números
+    let maior = mat[0][0]; let lmaior = 0; let cmaior = 0;
+    let menor = mat[0][0]; let lmenor = 0; let cmenor = 0;
+    for(let i=0;i<6;i++){
+        for(let j=0;j<3;j++){
+            if (mat[i][j] > maior) {
+                maior = mat[i][j]; lmaior = i; cmaior = j
+            }
+            if (mat[i][j] < menor) {
+                menor = mat[i][j]; lmenor = i; cmenor = j
+            }
+        }
+    }
+    alert(`Maior: ${maior} na posição ${lmaior + 1} x ${cmaior + 1}`)
+    alert(`Menor: ${menor} na posição ${lmenor + 1} x ${cmenor + 1}`)
+}
+
+function exe4(){
+    let mat = [] // matriz de notas
+    let vet = [] // vetor de nomes
+    for(let i=0;i<10;i++){ // para cada aluno
+        mat[i] = []
+        vet[i] = prompt(`Informe o nome do aluno ${i+1}`)
+        for(let j=0;j<5;j++){ // para cada nota
+            mat[i][j] = Number(prompt(`Informe a nota ${j+1} do aluno ${vet[i]}`))
+        }   
+    }
+    let somaMedia = 0
+    for(let i=0;i<10;i++){ // para cada aluno
+        let soma = 0 
+        for(let j=0;j<5;j++){ // para cada nota
+            soma += mat[i][j]
+        }
+        let media = soma / mat[i].length
+        somaMedia += media
+        let situacao
+        if (media >= 6){
+            situacao = "aprovado"
+        }
+        else if (media >= 3){
+            situacao = "exame"
+        }
+        else situacao = "reprovado"
+        alert(`Aluno ${vet[i]} com média ${media} foi ${situacao}`)
+    }
+    alert(`Média da turma ${somaMedia/vet.length}`)
+}
+
+function exe5Cadastra(mat, meses){
+    for(let i=0;i<12;i++){
+        mat[i] = [] // aloca espaço na memória para cada vetor da matriz
+        alert(`Informe as vendas do mês ${meses[i]}`)
+        for(let j=0;j<4;j++){
+            mat[i][j] = Number(prompt(`Valor vendido na semana ${j+1}`))
+        }
+    }
+}
+function exe5TotalMes(mat, meses){
+    let totalMes = []
+    let saida = ''
+    for(let i=0;i<12;i++){
+        totalMes[i] = 0
+        for(let j=0;j<4;j++){
+            totalMes[i] = totalMes[i] + mat[i][j]
+        }
+        saida = saida + `\n ${meses[i]} - ${totalMes[i]}`
+    }
+    alert(saida)
+}
+function exe5TotalSemana(mat){
+    let totalSemana = []
+    let saida = ''
+    for(let j=0;j<4;j++){
+        totalSemana[j] = 0
+        for(let i=0;i<12;i++){
+            totalSemana[j] = totalSemana[j] + mat[i][j]
+        }
+        saida = saida + `Semana ${i} vendeu ${totalSemana[i]}`
+    }
+    alert(saida)
+}
+function exe5Total(mat){
+    let total = 0
+    for(let i=0;i<12;i++){
+        for(let j=0;j<4;j++){
+            total += mat[i][j]
+        }
+    }
+    alert(`Total vendido ${total}`)
+}
+function exe5(){
+    const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
+    let mat = []
+    // passagem de parâmetro é por referência
+    // a função chamada, quando altera o parâmetro, afeta a variável da função que chamou
+    exe5Cadastra(mat, meses) 
+    exe5TotalMes(mat, meses)
+    exe5TotalSemana(mat)
+    exe5Total(mat)
+}
