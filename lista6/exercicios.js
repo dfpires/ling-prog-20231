@@ -156,3 +156,74 @@ function exe5(){
     exe5TotalSemana(mat)
     exe5Total(mat)
 }
+
+
+function somaLinhaColuna(M, N){
+    let O = []
+    for(let i=0;i<M.length;i++){
+        O[i] = []
+        for(let j=0;j<M[i].length;j++){
+            O[i][j] = M[i][j] + N[j][i]
+        }
+    }
+    mostraMatriz(O)
+}
+function exe7(){
+    let M = []
+    let N = []
+    preencheMatriz(M, 4, 6)
+    preencheMatriz(N, 6, 4)
+    mostraMatriz(M)
+    mostraMatriz(N)
+    somaLinhaColuna(M, N)
+}
+
+function mostraMatriz(matriz){
+    let saida
+    for(let i=0;i<matriz.length;i++){
+        saida = ''
+        for(let j=0;j<matriz[i].length;j++){
+            saida = saida + " " + matriz[i][j]
+        }
+        console.log(saida)
+    }
+    console.log('\n')
+}
+
+function preencheMatriz(matriz, linhas, colunas){
+    for(let i=0;i<linhas;i++){
+        matriz[i] = []
+        for(let j=0;j<colunas;j++){
+            matriz[i][j] = parseInt(Math.random() * 10)
+        }
+    }
+}
+
+function diagonalPrincipal(matriz){
+    let soma =0
+    for(let i=0;i<matriz.length;i++){
+        for(let j=0;j<matriz[i].length;j++){
+            if (i == j){
+                soma += matriz[i][j]
+            }
+        }
+    }
+    console.log(`Soma da DP é ${soma}`)
+}
+
+function diagonalSecundaria(matriz){
+    let soma =0
+    for(let i=0;i<matriz.length;i++){
+        let aux = matriz[i].length - i - 1
+        console.log(`${i} x ${aux} `)
+        soma += matriz[i][aux]
+    }
+    console.log(`Soma da DS é ${soma}`)
+}
+function exe10(){
+    let matriz = []
+    preencheMatriz(matriz, 5, 5)
+    mostraMatriz(matriz)
+    diagonalPrincipal(matriz)
+    diagonalSecundaria(matriz)
+}
